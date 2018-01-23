@@ -1,0 +1,14 @@
+[Unit]
+Description=Cluster-Smi-Router
+
+After=network.target local-fs.target multi-user.target
+Requires=network.target local-fs.target multi-user.target
+
+
+[Service]
+Type=simple
+StandardOutput=journal+console
+Environment=LD_LIBRARY_PATH=/mnt/hdd2/thangvubk/packages/cluster-smi/zeromq-4.1.0/dist/lib:$LD_LIBRARY_PATH
+ExecStart=/mnt/hdd2/thangvubk/packages/cluster-smi/go_code/src/github.com/patwie/cluster-smi/cluster-smi-router
+
+## Add me by: sudo systemctl enable cluster-smi-router.service
